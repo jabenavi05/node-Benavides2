@@ -48,5 +48,6 @@ export const deleteProductById = async (req, res) => {
 
   await Product.findByIdAndDelete(productId);
 
+  // code 200 is ok too
   res.status(204).json();
 };
