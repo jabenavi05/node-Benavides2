@@ -15,14 +15,14 @@ const app = express();
 createRoles();
 createAdmin();
 
-// Settings
+
 app.set("pkg", pkg);
 app.set("port", process.env.PORT || 4000);
 app.set("json spaces", 4);
 
-// Middlewares
+
 const corsOptions = {
-  // origin: "http://localhost:3000",
+
 };
 app.use(cors(corsOptions));
 app.use(helmet());
@@ -30,7 +30,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Welcome Routes
+
 app.get("/", (req, res) => {
   res.json({
     message: "Welcome to my Products API",
@@ -41,7 +41,7 @@ app.get("/", (req, res) => {
   });
 });
 
-// Routes
+
 app.use("/api/products", productRoutes);
 app.use("/api/users", usersRoutes);
 app.use("/api/auth", authRoutes);
